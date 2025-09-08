@@ -14,7 +14,6 @@ const HeroSection = () => {
 
             const scrollPosition = window.scrollY;
             const scrollThreshold = 100;
-            console.log(scrollPosition);
             
             if  (scrollPosition > scrollThreshold) {
                 imageElement.classList.add('scrolled');
