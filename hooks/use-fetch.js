@@ -12,7 +12,7 @@ const useFetch = (action) => {
         setError(null);
 
         try {
-            const response = await cb(...args);
+            const response = await action(...args);
             setData(response);
             setError(null);
         } catch (error) {

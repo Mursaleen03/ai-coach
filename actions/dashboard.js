@@ -4,6 +4,7 @@ import { db } from "@/lib/prisma";
 import { auth } from "@clerk/nextjs/server";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 import { use } from "react";
+import { includes } from "zod";
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 const model = genAI.getGenerativeModel({
@@ -18,9 +19,9 @@ export const generateAIInsights = async (industry) => {
               { "role": "string", "min": number, "max": number, "median": number, "location": "string" }
             ],
             "growthRate": number,
-            "demandLevel": "High" | "Medium" | "Low",
+            "demandLevel": "HIGH" | "MEDIUM" | "LOW",
             "topSkills": ["skill1", "skill2"],
-            "marketOutlook": "Positive" | "Neutral" | "Negative",
+            "marketOutlook": "POSITIVE" | "NEUTRAL" | "NEGATIVE",
             "keyTrends": ["trend1", "trend2"],
             "recommendedSkills": ["skill1", "skill2"]
           }
@@ -45,6 +46,9 @@ export async function getIndustryInsights() {
     const user = await db.user.findUnique({
         where: {
             clerkUserId: userId,
+        },
+        include : {
+            industryInsight: true,
         },
     });
 
