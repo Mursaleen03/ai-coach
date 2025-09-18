@@ -44,6 +44,7 @@
 }
 
 :root {
+  --md-editor-color: #000;
   --radius: 0.625rem;
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
@@ -182,4 +183,47 @@
 .hero-image.scrolled {
   transform: rotateX(0deg) scale(1) translateY(0);
   opacity: 1;
+}
+
+/* Pure HEX fallback for PDF mode */
+html.pdf-mode,
+html.pdf-mode body {
+  --background: #ffffff !important;
+  --foreground: #000000 !important;
+  --card: #ffffff !important;
+  --card-foreground: #000000 !important;
+  --popover: #ffffff !important;
+  --popover-foreground: #000000 !important;
+  --primary: #333333 !important;
+  --primary-foreground: #ffffff !important;
+  --secondary: #f2f2f2 !important;
+  --secondary-foreground: #222222 !important;
+  --muted: #e5e5e5 !important;
+  --muted-foreground: #666666 !important;
+  --accent: #f5f5f5 !important;
+  --accent-foreground: #111111 !important;
+  --destructive: #ff0000 !important;
+  --border: #dddddd !important;
+  --input: #f0f0f0 !important;
+  --ring: #b3b3b3 !important;
+
+  /* Charts */
+  --chart-1: #ff6b6b !important;
+  --chart-2: #4dabf7 !important;
+  --chart-3: #9775fa !important;
+  --chart-4: #51cf66 !important;
+  --chart-5: #fcc419 !important;
+
+  /* Sidebar */
+  --sidebar: #f9f9f9 !important;
+  --sidebar-foreground: #111111 !important;
+  --sidebar-primary: #333333 !important;
+  --sidebar-primary-foreground: #ffffff !important;
+  --sidebar-accent: #f2f2f2 !important;
+  --sidebar-accent-foreground: #222222 !important;
+  --sidebar-border: #e0e0e0 !important;
+  --sidebar-ring: #b3b3b3 !important;
+
+  --chart-line: #ffffff !important;
+  --chart-glow: #ffffff !important;
 }
