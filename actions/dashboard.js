@@ -53,6 +53,7 @@ export async function getIndustryInsights() {
     });
 
     if (!user) throw new Error("User not found");
+    if (!user.industry) throw new Error("Industry not set. Please complete onboarding.");
 
     if (!user.industryInsight) {
         const insights = await generateAIInsights(user.industry);
